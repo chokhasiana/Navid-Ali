@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navid Ali Bhatti | Fine Art & Digital Works</title>
+    <meta name="description" content="Exclusive fine art portfolio and digital gallery of artist Navid Ali Bhatti. Curated fine art photography, generative media, and limited edition archival prints." />
+    <meta property="og:title" content="Navid Ali Bhatti | Fine Art & Digital Works" />
+    <meta property="og:description" content="Exclusive fine art portfolio and digital gallery of artist Navid Ali Bhatti. Curated fine art photography, generative media, and limited edition archival prints." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      // Suppress Vite dev server WebSocket connection errors in environments where HMR is disabled
+      window.addEventListener('error', function(event) {
+        if (
+          event.message && (
+            event.message.indexOf('WebSocket') !== -1 ||
+            event.message.indexOf('createWebSocketModuleRunnerTransport') !== -1 ||
+            (event.filename && event.filename.indexOf('@vite/client') !== -1)
+          )
+        ) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+          return true;
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason ? (event.reason.message || String(event.reason)) : '';
+        var stack = event.reason && event.reason.stack ? String(event.reason.stack) : '';
+        if (
+          reason.indexOf('WebSocket') !== -1 ||
+          reason.indexOf('createWebSocketModuleRunnerTransport') !== -1 ||
+          stack.indexOf('@vite/client') !== -1
+        ) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      }, true);
+    </script>
+  </head>
+  <body class="bg-[#faf9f6] text-[#1c1917] antialiased selection:bg-[#292524] selection:text-[#faf9f6] min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

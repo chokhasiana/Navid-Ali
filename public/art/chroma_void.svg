@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <radialGradient id="void-core" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0b101d" />
+      <stop offset="40%" stop-color="#06080e" />
+      <stop offset="100%" stop-color="#020305" />
+    </radialGradient>
+    <linearGradient id="stream-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4" stop-opacity="0.8" />
+      <stop offset="30%" stop-color="#00bbf9" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#4361ee" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#7209b7" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="stream-indigo" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="25%" stop-color="#a2d2ff" stop-opacity="0.85" />
+      <stop offset="55%" stop-color="#3a0ca3" stop-opacity="0.75" />
+      <stop offset="85%" stop-color="#140636" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#050110" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="glow-platinum" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0" />
+      <stop offset="50%" stop-color="#f8fafc" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0" />
+    </linearGradient>
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#void-core)" />
+
+  <!-- Ethereal volumetric backdrop ribbons -->
+  <g filter="url(#soft-glow)" opacity="0.6">
+    <path d="M 100,800 C 350,750 400,200 700,250 C 950,290 1050,600 1150,450" fill="none" stroke="#25165c" stroke-width="80" />
+    <path d="M 150,200 C 400,100 550,650 850,550 C 1050,480 1100,150 1180,300" fill="none" stroke="#0f3460" stroke-width="70" />
+  </g>
+
+  <!-- Flowing Main Quantum Light Manifolds -->
+  <path d="M 50,700 C 250,750 380,320 620,280 C 860,240 980,520 1150,420" fill="none" stroke="url(#stream-cyan)" stroke-width="18" filter="url(#soft-glow)" />
+  <path d="M 80,720 C 280,770 400,340 640,300 C 880,260 1000,540 1170,440" fill="none" stroke="url(#stream-indigo)" stroke-width="12" />
+  <path d="M 120,680 C 320,710 420,290 660,250 C 900,210 1020,490 1130,390" fill="none" stroke="#e0f2fe" stroke-width="3" opacity="0.8" />
+
+  <!-- Intersecting Secondary Topological Manifold -->
+  <path d="M 1100,800 C 900,650 780,720 580,450 C 380,180 250,220 50,150" fill="none" stroke="url(#stream-indigo)" stroke-width="16" opacity="0.75" />
+  <path d="M 1080,820 C 880,670 760,740 560,470 C 360,200 230,240 30,170" fill="none" stroke="url(#stream-cyan)" stroke-width="8" opacity="0.85" />
+
+  <!-- Core Singular Luminous Filament -->
+  <path d="M 150,690 Q 420,450 630,270 T 1140,410" fill="none" stroke="url(#glow-platinum)" stroke-width="2.5" />
+
+  <!-- Micro particle coordinates -->
+  <circle cx="630" cy="270" r="3" fill="#ffffff" filter="url(#soft-glow)" />
+  <circle cx="480" cy="380" r="2" fill="#38bdf8" />
+  <circle cx="780" cy="310" r="2" fill="#c084fc" />
+  <circle cx="890" cy="410" r="1.5" fill="#f8fafc" />
+  <circle cx="340" cy="520" r="2" fill="#67e8f9" />
+  <circle cx="210" cy="650" r="2.5" fill="#ffffff" />
+</svg>

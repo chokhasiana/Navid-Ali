@@ -1,0 +1,370 @@
+{
+  "artworks": [
+    {
+      "id": "art-monolith-01",
+      "title": "Monolith IV: Ocean Fog",
+      "series": "Brutalist Coastlines",
+      "year": 2025,
+      "category": "monochrome",
+      "medium": "Archival Carbon Pigment on Hahnemühle Photo Rag 308g",
+      "dimensions": "180 × 120 cm / 70.8 × 47.2 in",
+      "edition": "Limited Edition of 5 + 2 AP",
+      "availableEditions": 2,
+      "price": 4800,
+      "currency": "EUR",
+      "description": "An isolated monolithic concrete sea pavilion emerging through thick Atlantic sea smoke at dawn. Captured with an 8x10 large format field camera over a continuous 14-minute exposure.",
+      "curatorialNotes": "In 'Monolith IV', the brutalist mass dissolves into oceanic haze, transforming heavy cast concrete into an ethereal ghost of modernist ambition.",
+      "technicalDetails": {
+        "cameraOrEngine": "Deardorff 8x10 Field Camera / Schneider Kreuznach 300mm",
+        "lensOrAlgorithm": "Ilford HP5 Plus (developed in Rodinal 1+50)",
+        "captureYear": 2025,
+        "fileSpec": "Drum scan 16-bit TIFF / 24,000 × 16,000 px"
+      },
+      "imageUrl": "/art/monolith_fog.svg",
+      "artStyle": "Architectural Fine Art Photography",
+      "aspectRatio": "16:9",
+      "featured": true,
+      "published": true,
+      "sortOrder": 1,
+      "exhibitions": [
+        "Neue Nationalgalerie Project Space, Berlin (2026)",
+        "Center for Photographic Arts Zürich (2025)"
+      ],
+      "awards": [
+        "International Fine Art Photography Monograph Gold, 2025"
+      ]
+    },
+    {
+      "id": "art-chroma-02",
+      "title": "Quantum Chromodynamics III: Indigo Rift",
+      "series": "Synthetic Fields",
+      "year": 2026,
+      "category": "generative",
+      "medium": "Direct UV-Curable Print on Brushed Aluminium Dibond, Matt Finish",
+      "dimensions": "160 × 120 cm / 63 × 47.2 in",
+      "edition": "Limited Edition of 7 + 1 AP",
+      "availableEditions": 3,
+      "price": 3900,
+      "currency": "EUR",
+      "description": "A computational synthesis of quantum field fluctuations rendered as continuous topological light manifolds. The dark void background contrasts with ribbons of cobalt, deep indigo, and icy titanium.",
+      "curatorialNotes": "Generated through custom C++ simulation shaders that calculate the interaction between light waves and virtual magnetic fluxes across multi-dimensional manifolds.",
+      "technicalDetails": {
+        "cameraOrEngine": "Bespoke C++ / Metal Fluid Dynamic Shaders",
+        "lensOrAlgorithm": "Raymarched Navier-Stokes Volumetric Solver",
+        "captureYear": 2026,
+        "fileSpec": "Procedural vector resolution / 16K Master Master"
+      },
+      "imageUrl": "/art/chroma_void.svg",
+      "artStyle": "Algorithmic Digital Art",
+      "aspectRatio": "4:3",
+      "featured": true,
+      "published": true,
+      "sortOrder": 2,
+      "exhibitions": [
+        "Biennial of Media Arts Venice (2024)",
+        "Kunstraum Tokyo (2025)"
+      ],
+      "awards": [
+        "Lumen Prize Nominee for Pure Computational Art, 2025"
+      ]
+    },
+    {
+      "id": "art-solitude-03",
+      "title": "Basalt Tower in Arctic Twilight",
+      "series": "Silent Coastlines",
+      "year": 2024,
+      "category": "monochrome",
+      "medium": "Platinum-Palladium Print on Hand-Coated Japanese Washi Paper",
+      "dimensions": "120 × 90 cm / 47.2 × 35.4 in",
+      "edition": "Limited Edition of 3 + 1 AP",
+      "availableEditions": 1,
+      "price": 6200,
+      "currency": "EUR",
+      "description": "A single volcanic basalt needle rising sheer from the North Atlantic surf off the Vik coast during polar night, reflecting faint silver ambient twilight on glassy water.",
+      "curatorialNotes": "Hand-printed by the artist in his Berlin darkroom using precious platinum and palladium salts, achieving rich luminous midtones impossible in standard silver processes.",
+      "technicalDetails": {
+        "cameraOrEngine": "Linhof Master Technika 4x5 / Rodenstock Grandagon 90mm",
+        "lensOrAlgorithm": "Kodak Tri-X 320 Sheet Film",
+        "captureYear": 2024,
+        "fileSpec": "Contact printed directly from 4x5 sheet negative"
+      },
+      "imageUrl": "/art/basalt_stack.svg",
+      "artStyle": "Fine Art Landscape Photography",
+      "aspectRatio": "3:4",
+      "featured": true,
+      "published": true,
+      "sortOrder": 3,
+      "exhibitions": [
+        "Arsenale Docks Venice (2024)",
+        "Hatje Cantz Retrospective (2024)"
+      ],
+      "awards": [
+        "European Landscape Master Print Selection 2024"
+      ]
+    },
+    {
+      "id": "art-fractal-04",
+      "title": "Algorithmic Flora IX: Filament Lattice",
+      "series": "Synthetic Botany",
+      "year": 2025,
+      "category": "generative",
+      "medium": "Face-Mounted Museum Acrylic Glass on Diasec Aluminium Substrate",
+      "dimensions": "140 × 105 cm / 55.1 × 41.3 in",
+      "edition": "Limited Edition of 5 + 2 AP",
+      "availableEditions": 4,
+      "price": 4400,
+      "currency": "EUR",
+      "description": "Intricate recursive crystalline geometries emulating the vascular architecture of deep-sea bioluminescent organisms suspended in an obsidian vacuum.",
+      "curatorialNotes": "Explores the philosophical boundary between organic growth and deterministic computation, presenting mathematically generated organisms that feel undeniably alive.",
+      "technicalDetails": {
+        "cameraOrEngine": "Recursive Differential Growth Algorithm in Rust",
+        "lensOrAlgorithm": "Octree-Accelerated Path Tracing Engine",
+        "captureYear": 2025,
+        "fileSpec": "32-bit floating point EXR render / 12,000 × 9,000 px"
+      },
+      "imageUrl": "/art/algorithmic_flora.svg",
+      "artStyle": "Generative Spatial Media",
+      "aspectRatio": "4:3",
+      "featured": true,
+      "published": true,
+      "sortOrder": 4,
+      "exhibitions": [
+        "Institute of Contemporary Arts London (2022)",
+        "Kunstraum Tokyo (2025)"
+      ],
+      "awards": []
+    },
+    {
+      "id": "art-arch-05",
+      "title": "Cantilever in Rain, Berlin V",
+      "series": "Brutalist Coastlines",
+      "year": 2023,
+      "category": "architectural",
+      "medium": "Archival Pigment on Hahnemühle FineArt Baryta 325g",
+      "dimensions": "150 × 100 cm / 59 × 39.4 in",
+      "edition": "Limited Edition of 10 + 2 AP",
+      "availableEditions": 5,
+      "price": 3200,
+      "currency": "EUR",
+      "description": "A study of reinforced concrete brutalism in deep Berlin rain. The wet surface reflects street sodium light, turning planar concrete into a mirror of urban solitude.",
+      "curatorialNotes": "A masterwork of geometric framing, balancing heavy horizontal cantilevers against delicate vertical streaks of rain.",
+      "technicalDetails": {
+        "cameraOrEngine": "Leica S3 Medium Format / Summarit-S 70mm f/2.5 ASPH",
+        "lensOrAlgorithm": "ISO 100, f/11, 2.5s exposure on Gitzo carbon tripod",
+        "captureYear": 2023,
+        "fileSpec": "64 Megapixel Medium Format DNG"
+      },
+      "imageUrl": "/art/cantilever_rain.svg",
+      "artStyle": "Architectural Photography",
+      "aspectRatio": "16:9",
+      "featured": false,
+      "published": true,
+      "sortOrder": 5,
+      "exhibitions": [
+        "Center for Photographic Arts Zürich (2023)"
+      ],
+      "awards": []
+    },
+    {
+      "id": "art-void-06",
+      "title": "Event Horizon: Zero Point",
+      "series": "Synthetic Fields",
+      "year": 2026,
+      "category": "conceptual",
+      "medium": "Ultra-Matte Archival Carbon Print in Custom Steel Shadowbox Frame",
+      "dimensions": "130 × 130 cm / 51.2 × 51.2 in",
+      "edition": "Limited Edition of 3 + 1 AP",
+      "availableEditions": 1,
+      "price": 5900,
+      "currency": "EUR",
+      "description": "An exploration of absolute blackness and the minimal threshold of visible light. The composition features a singularity ring rendered at the limit of human perception.",
+      "curatorialNotes": "When viewed in controlled gallery lighting, the artwork creates the optical illusion of physical depth receding infinitely past the wall surface.",
+      "technicalDetails": {
+        "cameraOrEngine": "Custom General Relativity Gravitational Lensing Code",
+        "lensOrAlgorithm": "Spectral Light Raymarcher",
+        "captureYear": 2026,
+        "fileSpec": "Spectrally sampled 16-channel luminance map"
+      },
+      "imageUrl": "/art/event_horizon.svg",
+      "artStyle": "Conceptual Digital Art",
+      "aspectRatio": "1:1",
+      "featured": true,
+      "published": true,
+      "sortOrder": 6,
+      "exhibitions": [
+        "Neue Nationalgalerie Project Space, Berlin (2026)"
+      ],
+      "awards": []
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-print-01",
+      "artworkId": "art-monolith-01",
+      "title": "Monolith IV: Ocean Fog — Archival Museum Print",
+      "category": "print",
+      "productType": "Physical Fine Art Print",
+      "description": "Master printer certified archival pigment print on heavy 308g Hahnemühle Photo Rag cotton paper. Hand-signed and numbered by Navid Ali Bhatti in pencil on the margin. Includes an embossed Certificate of Authenticity with registered hologram.",
+      "basePrice": 1200,
+      "sizes": [
+        {
+          "name": "Collector Medium",
+          "dimensions": "90 × 60 cm (35.4 × 23.6 in)",
+          "price": 1200,
+          "available": true
+        },
+        {
+          "name": "Gallery Large",
+          "dimensions": "140 × 93 cm (55.1 × 36.6 in)",
+          "price": 2400,
+          "available": true
+        },
+        {
+          "name": "Monographic Monument",
+          "dimensions": "180 × 120 cm (70.8 × 47.2 in)",
+          "price": 4800,
+          "available": true
+        }
+      ],
+      "framingOptions": [
+        {
+          "name": "Unframed (Rolled in Archival Tube)",
+          "surcharge": 0
+        },
+        {
+          "name": "Museum Shadowbox Frame (Black Stained Oak with Museum Anti-Reflective Glass)",
+          "surcharge": 480
+        },
+        {
+          "name": "Minimalist Floating Aluminium Frame (Deep Slate)",
+          "surcharge": 390
+        }
+      ],
+      "certificateIncluded": true,
+      "inStock": true,
+      "shippingInfo": "Complimentary insured worldwide courier shipping with temperature-controlled art crating for framed editions. Estimated delivery: 10–14 business days."
+    },
+    {
+      "id": "prod-dibond-02",
+      "artworkId": "art-chroma-02",
+      "title": "Quantum Chromodynamics III — Brushed Aluminium Dibond",
+      "category": "dibond",
+      "productType": "Aluminium Dibond",
+      "description": "Direct gallery UV print onto real brushed aluminium dibond backing. The metallic substrate subtly glistens through the lighter titanium highlights while blacks remain absolute, creating stunning luminosity under spot lighting.",
+      "basePrice": 1850,
+      "sizes": [
+        {
+          "name": "Gallery Standard",
+          "dimensions": "100 × 75 cm (39.4 × 29.5 in)",
+          "price": 1850,
+          "available": true
+        },
+        {
+          "name": "Exhibition Statement",
+          "dimensions": "160 × 120 cm (63 × 47.2 in)",
+          "price": 3900,
+          "available": true
+        }
+      ],
+      "framingOptions": [
+        {
+          "name": "Integrated Invisible Floating Wall Mount (15mm Wall Standoff)",
+          "surcharge": 0
+        },
+        {
+          "name": "Slimline Anodized Black Aluminium Floating Tray",
+          "surcharge": 320
+        }
+      ],
+      "certificateIncluded": true,
+      "inStock": true,
+      "shippingInfo": "Shipped in custom wooden crate with reinforced edge protectors. Ready to hang upon unboxing."
+    },
+    {
+      "id": "prod-acrylic-04",
+      "artworkId": "art-fractal-04",
+      "title": "Algorithmic Flora IX — Diasec Acrylic Glass Mount",
+      "category": "acrylic",
+      "productType": "Acrylic Glass Mount",
+      "description": "Genuine Diasec museum-grade process: face-mounting the photographic print beneath 4mm polished optical-grade acrylic glass, backed with 3mm aluminium. Delivers extraordinary depth, chromatic saturation, and 99% UV preservation.",
+      "basePrice": 2200,
+      "sizes": [
+        {
+          "name": "Square Collector",
+          "dimensions": "90 × 67.5 cm (35.4 × 26.5 in)",
+          "price": 2200,
+          "available": true
+        },
+        {
+          "name": "Monumental Diasec",
+          "dimensions": "140 × 105 cm (55.1 × 41.3 in)",
+          "price": 4400,
+          "available": true
+        }
+      ],
+      "framingOptions": [
+        {
+          "name": "Hidden Aluminium Subframe (Floating Illusion)",
+          "surcharge": 0
+        },
+        {
+          "name": "Solid Smoked Walnut Shadow Gap Frame",
+          "surcharge": 550
+        }
+      ],
+      "certificateIncluded": true,
+      "inStock": true,
+      "shippingInfo": "Insured white-glove art courier delivery throughout Europe and North America."
+    },
+    {
+      "id": "prod-monograph-book",
+      "artworkId": "art-monolith-01",
+      "title": "Monograph: The Geometry of Silence (Special Collector Edition)",
+      "category": "print",
+      "productType": "Physical Fine Art Print",
+      "description": "Hardcover monograph published by Hatje Cantz (Berlin). 248 pages with 140 tritone plates on Japanese Fedrigoni paper. Limited Collector Edition of 300 copies, presented in an embossed linen slipcase, accompanied by an original signed 24 × 18 cm silver gelatin photograph.",
+      "basePrice": 280,
+      "sizes": [
+        {
+          "name": "Collector Book Edition + Signed Original Print",
+          "dimensions": "32 × 28 cm (Hardcover with Slipcase)",
+          "price": 280,
+          "available": true
+        }
+      ],
+      "framingOptions": [
+        {
+          "name": "Standard Book in Slipcase",
+          "surcharge": 0
+        }
+      ],
+      "certificateIncluded": true,
+      "inStock": true,
+      "shippingInfo": "Dispatched within 48 hours via registered postal courier."
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-1792943717286",
+      "name": "Art Collector",
+      "email": "collector@gallery.com",
+      "type": "acquisition",
+      "subject": "Acquisition Test",
+      "message": "Testing live inquiry system.",
+      "status": "new",
+      "createdAt": "2026-10-25T15:55:17.286Z"
+    },
+    {
+      "id": "inq-demo-1",
+      "name": "Dr. Elena Rostova",
+      "email": "elena.rostova@kunsthalle-berlin.de",
+      "type": "exhibition",
+      "subject": "Curatorial Inquiry: Winter Exhibition 2026/27",
+      "message": "Dear Navid, we would be delighted to discuss presenting your 'Brutalist Coastlines' series as part of our upcoming architectural photography survey. Could we arrange a studio visit?",
+      "status": "new",
+      "artworkReference": "Monolith IV: Ocean Fog",
+      "createdAt": "2026-10-23T15:55:10.112Z"
+    }
+  ],
+  "orders": []
+}

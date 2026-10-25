@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="concrete-wall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d3138" />
+      <stop offset="50%" stop-color="#1b1d22" />
+      <stop offset="100%" stop-color="#0b0c0e" />
+    </linearGradient>
+    <linearGradient id="wet-gleam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.0" />
+      <stop offset="48%" stop-color="#cbd5e1" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.75" />
+      <stop offset="52%" stop-color="#cbd5e1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="rain-tint" x1="0%" y1="0%" x2="10%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#475569" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep rainy sky -->
+  <rect width="1600" height="900" fill="#0c0e12" />
+
+  <!-- Massive Brutalist Cantilever Beam -->
+  <polygon points="0,150 1400,280 1350,480 0,380" fill="url(#concrete-wall)" />
+  <!-- Under-surface shadow -->
+  <polygon points="0,380 1350,480 1300,530 0,420" fill="#040506" />
+
+  <!-- Supporting Vertical Shear Wall -->
+  <polygon points="200,380 480,410 480,900 200,900" fill="#14161a" />
+  <polygon points="480,410 520,415 520,900 480,900" fill="#090a0d" />
+
+  <!-- Wet asphalt / courtyard reflection below -->
+  <rect y="720" width="1600" height="180" fill="#08090b" />
+  <rect y="720" width="1600" height="180" fill="url(#wet-gleam)" opacity="0.15" />
+
+  <!-- Rain Streaks (slanted 8 degrees) -->
+  <g stroke="url(#rain-tint)" stroke-width="0.75">
+    <line x1="120" y1="0" x2="60" y2="900" />
+    <line x1="280" y1="0" x2="220" y2="900" />
+    <line x1="440" y1="0" x2="380" y2="900" />
+    <line x1="600" y1="0" x2="540" y2="900" />
+    <line x1="760" y1="0" x2="700" y2="900" />
+    <line x1="920" y1="0" x2="860" y2="900" />
+    <line x1="1080" y1="0" x2="1020" y2="900" />
+    <line x1="1240" y1="0" x2="1180" y2="900" />
+    <line x1="1400" y1="0" x2="1340" y2="900" />
+    <line x1="1560" y1="0" x2="1500" y2="900" />
+  </g>
+
+  <!-- Wet concrete highlight strip -->
+  <line x1="0" y1="150" x2="1400" y2="280" stroke="#94a3b8" stroke-width="1.8" opacity="0.6" />
+</svg>

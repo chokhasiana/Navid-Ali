@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="studio-spotlight" cx="65%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2d3238" />
+      <stop offset="50%" stop-color="#14171a" />
+      <stop offset="100%" stop-color="#07080a" />
+    </radialGradient>
+    <linearGradient id="face-shadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0c0e" />
+      <stop offset="45%" stop-color="#191c20" />
+      <stop offset="75%" stop-color="#8a94a2" />
+      <stop offset="95%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <linearGradient id="coat-wool" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17191d" />
+      <stop offset="100%" stop-color="#090a0c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Studio backdrop -->
+  <rect width="800" height="800" fill="url(#studio-spotlight)" />
+
+  <!-- Studio window frame cast shadow in background -->
+  <line x1="200" y1="0" x2="100" y2="800" stroke="#1f2329" stroke-width="20" opacity="0.4" />
+  <line x1="0" y1="300" x2="800" y2="200" stroke="#1f2329" stroke-width="12" opacity="0.3" />
+
+  <!-- Artist Silhouette & Head / Coat -->
+  <!-- Shoulders / High-collar dark cashmere coat -->
+  <path d="M 180,800 C 220,580 320,530 400,530 C 480,530 580,580 620,800 Z" fill="url(#coat-wool)" />
+  <path d="M 330,550 L 400,640 L 470,550 Z" fill="#0f1114" />
+
+  <!-- Neck -->
+  <rect x="365" y="440" width="70" height="100" fill="#1e2227" />
+
+  <!-- Head / Jaw profile (3/4 angle) -->
+  <path d="M 320,380 C 310,250 360,180 440,180 C 510,180 540,240 540,350 C 540,430 480,480 410,480 C 350,480 320,440 320,380 Z" fill="url(#face-shadow)" />
+
+  <!-- Sculpted hair / dark texture -->
+  <path d="M 320,290 C 300,210 360,150 440,150 C 520,150 560,200 550,290 C 530,220 480,190 430,200 C 380,210 340,240 320,290 Z" fill="#08090b" />
+
+  <!-- Eye & Brow ridge in chiaroscuro rim lighting -->
+  <path d="M 430,300 Q 460,295 480,305" stroke="#050607" stroke-width="3" fill="none" />
+  <!-- Eye highlight -->
+  <circle cx="462" cy="318" r="2.5" fill="#ffffff" />
+  
+  <!-- Nose ridge highlight -->
+  <polygon points="468,310 472,365 455,372 458,358" fill="#cbd5e1" opacity="0.85" />
+
+  <!-- Lip shadow -->
+  <path d="M 440,410 Q 460,412 475,408" stroke="#111317" stroke-width="2.5" fill="none" />
+  <line x1="445" y1="422" x2="470" y2="422" stroke="#222730" stroke-width="2" />
+
+  <!-- Directional Rim Light on Jaw / Cheekbone -->
+  <path d="M 470,250 C 510,290 515,360 480,430" stroke="#f1f5f9" stroke-width="3.5" fill="none" opacity="0.85" />
+</svg>

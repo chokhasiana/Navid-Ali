@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <filter id="film-grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.8  0 0 0 0 0.8  0 0 0 0 0.8  0 0 0 0.07 0" />
+      <feBlend mode="overlay" in2="SourceGraphic" />
+    </filter>
+    <linearGradient id="sky-fog" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#242629" />
+      <stop offset="45%" stop-color="#464a50" />
+      <stop offset="65%" stop-color="#80858e" />
+      <stop offset="85%" stop-color="#202225" />
+      <stop offset="100%" stop-color="#0e0f11" />
+    </linearGradient>
+    <linearGradient id="ocean-water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#15171a" />
+      <stop offset="50%" stop-color="#0d0e10" />
+      <stop offset="100%" stop-color="#050607" />
+    </linearGradient>
+    <linearGradient id="concrete-lit" x1="20%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#e8ebef" />
+      <stop offset="35%" stop-color="#9ea4ae" />
+      <stop offset="70%" stop-color="#3c4046" />
+      <stop offset="100%" stop-color="#121315" />
+    </linearGradient>
+    <linearGradient id="concrete-shadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1c1e" />
+      <stop offset="60%" stop-color="#0b0c0d" />
+      <stop offset="100%" stop-color="#020303" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Sky & Heavy Mist -->
+  <rect width="1600" height="900" fill="url(#sky-fog)" />
+
+  <!-- Fog layers -->
+  <ellipse cx="800" cy="540" rx="900" ry="260" fill="#a4abb5" opacity="0.18" />
+  <ellipse cx="600" cy="520" rx="700" ry="140" fill="#c4cad2" opacity="0.14" />
+
+  <!-- Ocean Surface with glassy reflections -->
+  <rect y="580" width="1600" height="320" fill="url(#ocean-water)" />
+
+  <!-- Water specular horizon line -->
+  <line x1="0" y1="580" x2="1600" y2="580" stroke="#757c87" stroke-width="1.2" opacity="0.4" />
+  <line x1="400" y1="584" x2="1200" y2="584" stroke="#aab2bf" stroke-width="0.8" opacity="0.25" />
+
+  <!-- Monolith Concrete Structure (Brutalist cantilevered pavilion) -->
+  <!-- Base Foundation -->
+  <polygon points="560,720 1040,720 980,590 620,590" fill="url(#concrete-shadow)" />
+  
+  <!-- Massive Central Pylon -->
+  <polygon points="620,590 980,590 950,260 650,260" fill="url(#concrete-shadow)" />
+  <polygon points="650,260 950,260 910,180 690,180" fill="url(#concrete-lit)" opacity="0.9" />
+
+  <!-- Cantilever Overhang Wings -->
+  <polygon points="460,340 1140,340 1080,280 520,280" fill="url(#concrete-lit)" />
+  <polygon points="460,340 520,380 1080,380 1140,340" fill="#181a1d" />
+
+  <!-- Deep Architectural Aperture / Void -->
+  <polygon points="730,420 870,420 860,560 740,560" fill="#030404" />
+  <polygon points="740,430 760,430 760,550 740,550" fill="#666d77" opacity="0.6" />
+
+  <!-- Fine Concrete Formwork Seams -->
+  <line x1="520" y1="310" x2="1080" y2="310" stroke="#2a2d32" stroke-width="1" />
+  <line x1="660" y1="210" x2="660" y2="580" stroke="#1f2226" stroke-width="1" opacity="0.6" />
+  <line x1="800" y1="190" x2="800" y2="580" stroke="#1f2226" stroke-width="1" opacity="0.6" />
+  <line x1="940" y1="210" x2="940" y2="580" stroke="#1f2226" stroke-width="1" opacity="0.6" />
+
+  <!-- Atmospheric Sea Vapor drifting across structure -->
+  <path d="M 300,560 Q 600,510 900,550 T 1500,520 L 1600,620 L 200,630 Z" fill="#b8c0cc" opacity="0.12" />
+  <path d="M 400,600 Q 750,570 1100,590 L 1050,670 L 450,660 Z" fill="#8d95a1" opacity="0.08" />
+
+  <!-- Water Reflection of Monolith -->
+  <ellipse cx="800" cy="650" rx="180" ry="60" fill="#060708" opacity="0.8" />
+  <ellipse cx="800" cy="740" rx="120" ry="40" fill="#0a0b0d" opacity="0.5" />
+
+  <!-- Film grain overlay -->
+  <rect width="1600" height="900" filter="url(#film-grain)" />
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="twilight-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1017" />
+      <stop offset="45%" stop-color="#182330" />
+      <stop offset="70%" stop-color="#3a4b5e" />
+      <stop offset="85%" stop-color="#7389a0" />
+      <stop offset="90%" stop-color="#2a3543" />
+      <stop offset="100%" stop-color="#090d13" />
+    </linearGradient>
+    <linearGradient id="basalt-texture" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#07090c" />
+      <stop offset="40%" stop-color="#14181e" />
+      <stop offset="70%" stop-color="#222730" />
+      <stop offset="100%" stop-color="#0a0d11" />
+    </linearGradient>
+    <linearGradient id="basalt-highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3d4957" />
+      <stop offset="100%" stop-color="#0e1216" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky in arctic twilight -->
+  <rect width="900" height="1200" fill="url(#twilight-gradient)" />
+
+  <!-- Glassy dark sea horizon -->
+  <rect y="820" width="900" height="380" fill="#080b0f" />
+  <line x1="0" y1="820" x2="900" y2="820" stroke="#8fa4bc" stroke-width="1" opacity="0.45" />
+
+  <!-- Calm long-exposure surf wash streaks -->
+  <ellipse cx="450" cy="880" rx="360" ry="12" fill="#526477" opacity="0.15" />
+  <ellipse cx="450" cy="940" rx="280" ry="8" fill="#71869d" opacity="0.1" />
+  <ellipse cx="450" cy="1020" rx="400" ry="14" fill="#324050" opacity="0.2" />
+
+  <!-- The Monolithic Basalt Stack -->
+  <!-- Base submerged reef -->
+  <polygon points="320,860 580,860 550,810 350,810" fill="#050709" />
+  
+  <!-- Primary Basalt Pillar Tower -->
+  <polygon points="350,810 550,810 520,380 480,240 450,230 420,240 380,380" fill="url(#basalt-texture)" />
+
+  <!-- Faceted volcanic columnar jointing lines -->
+  <polygon points="420,240 450,230 460,810 430,810" fill="url(#basalt-highlight)" opacity="0.5" />
+  <line x1="430" y1="260" x2="430" y2="810" stroke="#040608" stroke-width="1.5" />
+  <line x1="460" y1="260" x2="460" y2="810" stroke="#040608" stroke-width="1.5" />
+  <line x1="480" y1="320" x2="480" y2="810" stroke="#040608" stroke-width="1.2" />
+  <line x1="390" y1="350" x2="390" y2="810" stroke="#040608" stroke-width="1.2" />
+
+  <!-- Stack reflection in water -->
+  <polygon points="360,830 540,830 500,1100 400,1100" fill="#040608" opacity="0.75" />
+  
+  <!-- Faint arctic mist around pinnacle -->
+  <ellipse cx="450" cy="240" rx="90" ry="30" fill="#8fa4bc" opacity="0.12" />
+</svg>
