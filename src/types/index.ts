@@ -135,6 +135,20 @@ export interface ArtistProfile {
   };
 }
 
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  content: string;
+  date: string;
+  category: 'Kreativprozess' | 'Schulprojekt' | 'Fotografie' | 'Gedanken' | 'Ausstellung';
+  imageUrl: string;
+  readTime: string;
+  tags: string[];
+  published: boolean;
+}
+
 export type PresetThemeId =
   | 'alabaster'
   | 'pure_white'
@@ -142,6 +156,11 @@ export type PresetThemeId =
   | 'warm_champagne'
   | 'nordic_slate'
   | 'obsidian_darkroom'
+  | 'royal_gold'
+  | 'emerald_studio'
+  | 'cyber_neon'
+  | 'bauhaus_blue'
+  | 'terracotta'
   | 'custom';
 
 export interface GalleryTheme {
@@ -158,3 +177,4 @@ export interface GalleryTheme {
   accentContrast: string;
   isDark: boolean;
 }
+

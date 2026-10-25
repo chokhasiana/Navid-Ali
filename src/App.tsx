@@ -17,27 +17,34 @@ import { CuratorAuthModal } from './components/admin/CuratorAuthModal';
 import { ThemeEditorModal } from './components/admin/ThemeEditorModal';
 import { QuickArtworkModal } from './components/admin/QuickArtworkModal';
 import { ArtistProfileModal } from './components/admin/ArtistProfileModal';
-import { Artwork, ShopProduct, CartItem, GalleryTheme, ArtistProfile } from './types';
-import { initialArtworks, initialShopProducts, initialArtistProfile } from './data/initialData';
+import { MobileEditBar } from './components/admin/MobileEditBar';
+import { BlogSection } from './components/blog/BlogSection';
+import { BlogEditorModal } from './components/blog/BlogEditorModal';
+import { Artwork, ShopProduct, CartItem, GalleryTheme, ArtistProfile, BlogPost } from './types';
+import { initialArtworks, initialShopProducts, initialArtistProfile, initialBlogPosts } from './data/initialData';
 import {
   fetchArtworks,
   fetchProducts,
   fetchTheme,
   fetchProfile,
+  fetchBlogPosts,
+  deleteBlogPost,
   getStoredAdminToken,
   setStoredAdminToken,
 } from './services/api';
-import { defaultTheme, applyThemeToDocument } from './data/themes';
-import { ArrowRight, Sparkles, Plus, Palette } from 'lucide-react';
+import { defaultTheme, applyThemeToDocument, getStoredTheme } from './data/themes';
+import { ArrowRight, Sparkles, Plus, Palette, BookOpen } from 'lucide-react';
+import { LionFaceLogo } from './components/common/LionFaceLogo';
 
 const CART_STORAGE_KEY = 'nab_gallery_cart_v1';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'home' | 'gallery' | 'shop' | 'about' | 'contact' | 'admin'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'gallery' | 'blog' | 'shop' | 'about' | 'contact' | 'admin'>('home');
   const [artworks, setArtworks] = useState<Artwork[]>(initialArtworks);
   const [products, setProducts] = useState<ShopProduct[]>(initialShopProducts);
+  const [posts, setPosts] = useState<BlogPost[]>(initialBlogPosts);
   const [profile, setProfile] = useState<ArtistProfile>(initialArtistProfile);
-  const [theme, setTheme] = useState<GalleryTheme>(defaultTheme);
+  const [theme, setTheme] = useState<GalleryTheme>(getStoredTheme);
 
   // Curator mode & live edit states
   const [isCuratorLoggedIn, setIsCuratorLoggedIn] = useState<boolean>(false);
@@ -47,6 +54,8 @@ export default function App() {
   const [isArtworkModalOpen, setIsArtworkModalOpen] = useState<boolean>(false);
   const [artworkBeingEdited, setArtworkBeingEdited] = useState<Artwork | null>(null);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(false);
+  const [isBlogModalOpen, setIsBlogModalOpen] = useState<boolean>(false);
+  const [postBeingEdited, setPostBeingEdited] = useState<BlogPost | null>(null);
 
   // Lightbox state
   const [activeArtwork, setActiveArtwork] = useState<Artwork | null>(null);
@@ -71,20 +80,24 @@ export default function App() {
   // Legal Modal
   const [legalModalType, setLegalModalType] = useState<'impressum' | 'datenschutz' | null>(null);
 
-  // Load backend data
+  // Load backend / local data
   const loadData = async () => {
     try {
-      const [fetchedArts, fetchedProds, fetchedTheme, fetchedProfile] = await Promise.all([
+      const [fetchedArts, fetchedProds, fetchedTheme, fetchedProfile, fetchedPosts] = await Promise.all([
         fetchArtworks(),
         fetchProducts(),
         fetchTheme(),
         fetchProfile(),
+        fetchBlogPosts(),
       ]);
       if (fetchedArts && fetchedArts.length > 0) {
         setArtworks(fetchedArts);
       }
       if (fetchedProds && fetchedProds.length > 0) {
         setProducts(fetchedProds);
+      }
+      if (fetchedPosts && fetchedPosts.length > 0) {
+        setPosts(fetchedPosts);
       }
       if (fetchedTheme) {
         setTheme(fetchedTheme);
@@ -99,6 +112,9 @@ export default function App() {
   };
 
   useEffect(() => {
+    // Apply stored theme on mount immediately
+    const initialT = getStoredTheme();
+    applyThemeToDocument(initialT);
     loadData();
     // Check if curator token is saved
     const token = getStoredAdminToken();
@@ -159,6 +175,35 @@ export default function App() {
       return [savedArt, ...prev];
     });
     loadData();
+  };
+
+  // Blog Post Handlers
+  const handleCreateBlogPost = () => {
+    setPostBeingEdited(null);
+    setIsBlogModalOpen(true);
+  };
+
+  const handleEditBlogPost = (post: BlogPost) => {
+    setPostBeingEdited(post);
+    setIsBlogModalOpen(true);
+  };
+
+  const handleBlogPostSaved = (savedPost: BlogPost) => {
+    setPosts((prev) => {
+      const index = prev.findIndex((p) => p.id === savedPost.id);
+      if (index >= 0) {
+        const copy = [...prev];
+        copy[index] = savedPost;
+        return copy;
+      }
+      return [savedPost, ...prev];
+    });
+    loadData();
+  };
+
+  const handleDeleteBlogPost = async (id: string) => {
+    await deleteBlogPost(id);
+    setPosts((prev) => prev.filter((p) => p.id !== id));
   };
 
   const handleThemeSaved = (newTheme: GalleryTheme) => {
@@ -410,6 +455,78 @@ export default function App() {
                 </div>
               </div>
             </section>
+
+            {/* Student Blog & Creative Process Preview */}
+            <section
+              className="py-16 lg:py-24 border-b transition-colors"
+              style={{
+                backgroundColor: theme.bgCanvas,
+                borderColor: theme.borderColor,
+              }}
+            >
+              <div className="max-w-7xl mx-auto px-6 lg:px-12">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                  <div>
+                    <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] font-mono mb-2" style={{ color: theme.textMuted }}>
+                      <LionFaceLogo size={14} color="#b8860b" />
+                      <span>Schüler-Notizen &amp; Skizzenbuch</span>
+                    </div>
+                    <h2 className="font-serif text-3xl sm:text-4xl font-light tracking-tight" style={{ color: theme.textPrimary }}>
+                      Neueste Blogbeiträge &amp; Experimente
+                    </h2>
+                  </div>
+
+                  <button
+                    onClick={() => setActiveTab('blog')}
+                    className="text-xs uppercase tracking-[0.2em] font-medium transition-colors flex items-center gap-2 cursor-pointer pb-1 border-b"
+                    style={{
+                      color: theme.textPrimary,
+                      borderColor: theme.textPrimary,
+                    }}
+                  >
+                    <span>Alle Beiträge lesen</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {posts.slice(0, 3).map((post) => (
+                    <article
+                      key={post.id}
+                      onClick={() => setActiveTab('blog')}
+                      className="group flex flex-col bg-white border border-[#e5e3dc] hover:border-[#c59b27]/60 hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer"
+                    >
+                      <div className="p-2.5 pb-0">
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-stone-950">
+                          <img
+                            src={post.imageUrl}
+                            alt={post.title}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <span className="absolute top-2 left-2 px-2 py-0.5 bg-stone-900/80 text-[10px] uppercase font-mono text-gold-light rounded">
+                            {post.category}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] font-mono text-stone-500 block mb-1">
+                            {post.date} · {post.readTime}
+                          </span>
+                          <h4 className="font-serif text-lg font-light text-stone-900 group-hover:text-gold transition-colors leading-snug line-clamp-2">
+                            {post.title}
+                          </h4>
+                        </div>
+                        <span className="text-xs font-medium text-gold pt-3 border-t border-stone-100 flex items-center gap-1 mt-3">
+                          Weiterlesen <ArrowRight className="w-3 h-3" />
+                        </span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
           </div>
         )}
 
@@ -422,6 +539,17 @@ export default function App() {
             onInquire={handleInquireArtwork}
             isCuratorMode={isCuratorLoggedIn && isEditModeActive}
             onQuickEdit={handleQuickEditArtwork}
+          />
+        )}
+
+        {/* Blog & Sketchbook Section */}
+        {activeTab === 'blog' && (
+          <BlogSection
+            posts={posts}
+            isCuratorMode={isCuratorLoggedIn && isEditModeActive}
+            onOpenCreatePost={handleCreateBlogPost}
+            onOpenEditPost={handleEditBlogPost}
+            onDeletePost={handleDeleteBlogPost}
           />
         )}
 
@@ -465,18 +593,33 @@ export default function App() {
         )}
       </main>
 
-      {/* Floating Curator Live Control Bar (Accessible when logged in) */}
+      {/* Mobile-First Edit Dock (Smartphone & Tablet Touch UI) */}
+      <MobileEditBar
+        isCuratorLoggedIn={isCuratorLoggedIn}
+        isEditModeActive={isEditModeActive}
+        currentTheme={theme}
+        onToggleEditMode={() => setIsEditModeActive(!isEditModeActive)}
+        onOpenUploadArtwork={handleUploadNewArt}
+        onOpenCreateBlogPost={handleCreateBlogPost}
+        onOpenCuratorAuth={() => setIsAuthModalOpen(true)}
+        onOpenThemeEditor={() => setIsThemeModalOpen(true)}
+        onSelectThemePreset={handleThemeSaved}
+      />
+
+      {/* Floating Curator Live Control Bar (Accessible when logged in on Desktop) */}
       {isCuratorLoggedIn && (
-        <CuratorLiveBar
-          currentTheme={theme}
-          isEditModeActive={isEditModeActive}
-          onToggleEditMode={() => setIsEditModeActive(!isEditModeActive)}
-          onOpenUploadArt={handleUploadNewArt}
-          onOpenThemeEditor={() => setIsThemeModalOpen(true)}
-          onOpenProfileEditor={() => setIsProfileModalOpen(true)}
-          onOpenFullCMS={() => setActiveTab('admin')}
-          onLogout={handleCuratorLogout}
-        />
+        <div className="hidden md:block">
+          <CuratorLiveBar
+            currentTheme={theme}
+            isEditModeActive={isEditModeActive}
+            onToggleEditMode={() => setIsEditModeActive(!isEditModeActive)}
+            onOpenUploadArt={handleUploadNewArt}
+            onOpenThemeEditor={() => setIsThemeModalOpen(true)}
+            onOpenProfileEditor={() => setIsProfileModalOpen(true)}
+            onOpenFullCMS={() => setActiveTab('admin')}
+            onLogout={handleCuratorLogout}
+          />
+        </div>
       )}
 
       {/* Password Protection Authentication Modal (Master Password: 164325) */}
@@ -497,7 +640,7 @@ export default function App() {
         onThemeSaved={handleThemeSaved}
       />
 
-      {/* Live Quick Artwork Upload & Edit Modal */}
+      {/* Live Quick Artwork Upload & Edit Modal (Mobile Camera & Local File Support) */}
       <QuickArtworkModal
         isOpen={isArtworkModalOpen}
         artworkToEdit={artworkBeingEdited}
@@ -506,6 +649,17 @@ export default function App() {
           setArtworkBeingEdited(null);
         }}
         onArtworkSaved={handleArtworkSaved}
+      />
+
+      {/* Blog Article Editor Modal (Mobile-First Touch Writing & Upload) */}
+      <BlogEditorModal
+        isOpen={isBlogModalOpen}
+        postToEdit={postBeingEdited}
+        onClose={() => {
+          setIsBlogModalOpen(false);
+          setPostBeingEdited(null);
+        }}
+        onPostSaved={handleBlogPostSaved}
       />
 
       {/* Live Artist Profile & Bio Editor Modal */}
@@ -565,4 +719,4 @@ export default function App() {
       </div>
     </div>
   );
-}
+};

@@ -1,13 +1,13 @@
-import { Artwork, ShopProduct, ArtistProfile } from '../types';
+import { Artwork, ShopProduct, ArtistProfile, BlogPost } from '../types';
 
 export const initialArtistProfile: ArtistProfile = {
   name: "Navid Ali Bhatti",
-  title: "Contemporary Fine Art Photography & Algorithmic Media",
-  location: "Berlin / Lahore / Zürich",
+  title: "Schüler-Portfolio, Bildende Kunst & Kreativ-Blog",
+  location: "Berlin / Zürich",
   biography: [
-    "Navid Ali Bhatti (b. 1986) investigates the intersections between monumental physical architecture, transient atmospheric phenomena, and algorithmic generative spatial structures. Working with large-format analog field cameras, modified digital sensors, and bespoke computational light synthesis engines, Bhatti constructs contemplative images that interrogate human scale against geological and digital voids.",
-    "His practice is characterized by rigorous tonal restraint, deep obsidian shadows, and an uncompromising dedication to the physical print as an architectural object. Each physical monograph and exhibition print is produced using archival carbon pigment on museum-grade rag substrates or raw aluminium dibond.",
-    "Bhatti's works are held in notable institutional collections across Germany, Switzerland, the United Kingdom, and the United Arab Emirates. In 2024, Hatje Cantz published his definitive monograph, 'The Geometry of Silence: Monoliths, Light, and Algorithmic Voids'."
+    "Navid Ali Bhatti ist Schüler und junger bildender Künstler aus Berlin. Dieses private Portfolio und persönlicher Blog dokumentiert seine kreativen Arbeiten – von analoger Mittelformat- und Architekturfotografie über Skizzenbücher bis hin zu generativen Lichtexperimenten und schulischen Kunstprojekten.",
+    "Seine Praxis konzentriert sich auf geometrische Ruhe, monumentale Schatten und die Erforschung des Raumes. Jedes Werk entsteht im eigenen Schulatelier und Dunkelkammer-Labor, oft in Verbindung mit digitalem Code und handgebundenen Skizzenbüchern.",
+    "In diesem Blog teilt Navid persönliche Einblicke in seinen gestalterischen Lernprozess, Experimente mit neuen Techniken, Prüfungsvorbereitungen für den Leistungskurs Kunst sowie Gedanken zu zeitgenössischer Architektur und Ästhetik."
   ],
   exhibitions: [
     { year: 2026, title: "Resonance in Concrete & Code", venue: "Neue Nationalgalerie Project Space, Berlin", type: "Solo Exhibition" },
@@ -288,3 +288,59 @@ export const initialShopProducts: ShopProduct[] = [
     shippingInfo: "Dispatched within 48 hours via registered postal courier."
   }
 ];
+
+export const initialBlogPosts: BlogPost[] = [
+  {
+    id: "post-01",
+    title: "Vom Skizzenbuch zur Serie: Warum der Leerraum der wichtigste Teil des Bildes ist",
+    slug: "vom-skizzenbuch-zur-serie-leerraum",
+    summary: "Ein Einblick in meine Vorbereitung für die Kunst-Facharbeit. Wie ich mit minimalistischen Kompositionen und negativer Fläche arbeite, um Bildtiefe zu erzeugen.",
+    content: "In der Schule wird uns oft beigebracht, ein Blatt möglichst ausgewogen 'auszufüllen'. Doch in meinen eigenen Arbeiten – besonders bei den brutalistischen Monolithen – habe ich gemerkt: Das Auge braucht Stille. Wenn 80 % der Bildfläche aus Nebel, Wolken oder tiefschwarzem Himmel bestehen, wird das winzige Betonelement im Zentrum plötzlich monumental. Für diesen Blogbeitrag habe ich Auszüge aus meinem handgebundenen Skizzenbuch fotografiert und zeige den Entwicklungsprozess von der ersten Bleistiftstudie bis zum fertigen Pigmentdruck.",
+    date: "24. Oktober 2026",
+    category: "Kreativprozess",
+    imageUrl: "/art/monolith_fog.svg",
+    readTime: "4 Min. Lesezeit",
+    tags: ["Skizzenbuch", "Minimalismus", "Komposition", "Schulatelier"],
+    published: true,
+  },
+  {
+    id: "post-02",
+    title: "Analoges Mittelformat vs. Generativer Code: Mein Schulprojekt im Kunst-Leistungskurs",
+    slug: "analoges-mittelformat-vs-generativer-code",
+    summary: "Für meine Semesteraufgabe habe ich klassische Ilford HP5-Filme mit p5.js-Algorithmen kombiniert. Hier ist der Bericht über Fehlschläge und Durchbrüche.",
+    content: "Kann ein Computerprogramm dieselbe Seele besitzen wie ein Filmstreifen, der in der Dunkelkammer in Entwicklerflüssigkeit schwimmt? Genau diese Frage wollte ich in meinem Abschlussprojekt beantworten. Ich habe analoge Negative mit hohem Korn eingescannt und durch einen eigens geschriebenen Algorithmus geschickt, der die Lichtintensität in topografische Höhenlinien übersetzt. Das Resultat war überraschend: Die Körnigkeit des analogen Films erzeugt im digitalen Code organische Fehler ('Glitch-Muster'), die kein KI-Modell so vorhersagen konnte.",
+    date: "12. Oktober 2026",
+    category: "Schulprojekt",
+    imageUrl: "/art/chroma_void.svg",
+    readTime: "6 Min. Lesezeit",
+    tags: ["Kunstunterricht", "Dunkelkammer", "Algorithmen", "Experiment"],
+    published: true,
+  },
+  {
+    id: "post-03",
+    title: "Erste Schritte im Dunkelkammer-Labor: Chemikalien, Lichtfallen und Geduld",
+    slug: "erste-schritte-dunkelkammer-labor",
+    summary: "Ein Erfahrungsbericht über den Aufbau meines kleinen Arbeitsplatzes und die Faszination, wenn im roten Licht plötzlich die Konturen auf dem Fotopapier sichtbar werden.",
+    content: "Geduld ist etwas, das uns im Smartphone-Zeitalter völlig abhandengekommen ist. Wenn ich ein Foto auf dem Handy mache, sehe ich es in 0,1 Sekunden. In der Dunkelkammer dauert es 15 Minuten, bis man überhaupt weiß, ob die Belichtungszeit gestimmt hat. Dieser Prozess zwingt mich als Schüler dazu, vor dem Auslösen dreimal nachzudenken: Stimmt die Geometrie? Ist der Fluchtpunkt sauber ausgerichtet? Hier teile ich meine bevorzugten Entwickler-Rezepte und Tipps für alle, die selbst analog anfangen möchten.",
+    date: "28. September 2026",
+    category: "Fotografie",
+    imageUrl: "/art/basalt_stack.svg",
+    readTime: "5 Min. Lesezeit",
+    tags: ["Dunkelkammer", "Schwarzweiß", "Handwerk", "Inspiration"],
+    published: true,
+  },
+  {
+    id: "post-04",
+    title: "Gedanken zu Architektur & Raum: Berlins verborgene brutalistische Ikonen",
+    slug: "berlins-verborgene-brutalistische-ikonen",
+    summary: "Auf Fototour durch Berlin: Warum Betonbauten aus den 70er Jahren mich mehr inspirieren als glänzende Glasfassaden.",
+    content: "An Wochenenden fahre ich oft mit der S-Bahn an die Außenbezirke von Berlin. Dort stehen die oft geschmähten Betonbauten: Kirchen, Gemeindezentren, Universitätsinstitute. Viele Menschen finden sie abweisend und kalt. Für mich sind sie wie moderne Skulpturen. Das Licht bricht sich auf dem rauen Sichtbeton wie an einer Felswand. In dieser Notiz dokumentiere ich drei Standorte, die ich für meine nächste Werkreihe fotografiert habe.",
+    date: "15. September 2026",
+    category: "Gedanken",
+    imageUrl: "/art/cantilever_rain.svg",
+    readTime: "3 Min. Lesezeit",
+    tags: ["Berlin", "Brutalismus", "Architektur", "Inspiration"],
+    published: true,
+  }
+];
+

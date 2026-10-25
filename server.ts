@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs';
-import { initialArtworks, initialShopProducts, initialArtistProfile } from './src/data/initialData';
-import { Artwork, ShopProduct, ContactInquiry, CollectorOrder, GalleryTheme, ArtistProfile } from './src/types';
+import { initialArtworks, initialShopProducts, initialArtistProfile, initialBlogPosts } from './src/data/initialData';
+import { Artwork, ShopProduct, ContactInquiry, CollectorOrder, GalleryTheme, ArtistProfile, BlogPost } from './src/types';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -35,6 +35,7 @@ interface DatabaseSchema {
   products: ShopProduct[];
   inquiries: ContactInquiry[];
   orders: CollectorOrder[];
+  posts: BlogPost[];
   theme: GalleryTheme;
   profile: ArtistProfile;
 }
@@ -45,9 +46,10 @@ function loadDatabase(): DatabaseSchema {
       const raw = fs.readFileSync(DB_FILE, 'utf-8');
       const data = JSON.parse(raw);
       if (Array.isArray(data.artworks) && Array.isArray(data.products)) {
-        // Guarantee theme and profile exist
+        // Guarantee theme and profile and posts exist
         data.theme = data.theme || defaultTheme;
         data.profile = data.profile || initialArtistProfile;
+        data.posts = Array.isArray(data.posts) ? data.posts : initialBlogPosts;
         data.orders = Array.isArray(data.orders) ? data.orders : [];
         data.inquiries = Array.isArray(data.inquiries) ? data.inquiries : [];
         return data as DatabaseSchema;
@@ -60,6 +62,7 @@ function loadDatabase(): DatabaseSchema {
   const initialDb: DatabaseSchema = {
     artworks: initialArtworks,
     products: initialShopProducts,
+    posts: initialBlogPosts,
     inquiries: [
       {
         id: "inq-demo-1",
@@ -229,6 +232,52 @@ app.post('/api/artworks/reorder', verifyAdmin, (req: Request, res: Response) => 
   db.artworks = orderedArtworks;
   saveDatabase(db);
   res.json({ success: true, artworks: db.artworks });
+});
+
+// --- BLOG POSTS API ---
+
+app.get('/api/posts', (_req: Request, res: Response) => {
+  res.json(db.posts || []);
+});
+
+app.post('/api/posts', verifyAdmin, (req: Request, res: Response) => {
+  const newPost: BlogPost = {
+    id: `post-${Date.now()}`,
+    title: req.body.title || 'Neuer Blogbeitrag',
+    slug: (req.body.title || 'post').toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    summary: req.body.summary || '',
+    content: req.body.content || '',
+    date: new Date().toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }),
+    category: req.body.category || 'Kreativprozess',
+    imageUrl: req.body.imageUrl || '/art/monolith_fog.svg',
+    readTime: req.body.readTime || '4 Min. Lesezeit',
+    tags: Array.isArray(req.body.tags) ? req.body.tags : ['Kunstunterricht', 'Notizen'],
+    published: req.body.published !== false
+  };
+
+  db.posts = [newPost, ...(db.posts || [])];
+  saveDatabase(db);
+  res.status(201).json(newPost);
+});
+
+app.put('/api/posts/:id', verifyAdmin, (req: Request, res: Response) => {
+  const index = (db.posts || []).findIndex(p => p.id === req.params.id);
+  if (index === -1) {
+    return res.status(404).json({ error: 'Blog post not found.' });
+  }
+  db.posts[index] = {
+    ...db.posts[index],
+    ...req.body,
+    id: db.posts[index].id
+  };
+  saveDatabase(db);
+  res.json(db.posts[index]);
+});
+
+app.delete('/api/posts/:id', verifyAdmin, (req: Request, res: Response) => {
+  db.posts = (db.posts || []).filter(p => p.id !== req.params.id);
+  saveDatabase(db);
+  res.json({ success: true, message: 'Blog post removed.' });
 });
 
 // --- SHOP PRODUCTS API ---
@@ -412,11 +461,11 @@ app.post('/api/admin/auth', (req: Request, res: Response) => {
   return res.status(401).json({ error: 'Invalid master passkey. Please use the studio password.' });
 });
 
-// Reset data to pristine curated seeds
-app.post('/api/reset', verifyAdmin, (_req: Request, res: Response) => {
+const handleReset = (_req: Request, res: Response) => {
   db = {
     artworks: initialArtworks,
     products: initialShopProducts,
+    posts: initialBlogPosts,
     inquiries: [
       {
         id: "inq-demo-1",
@@ -436,7 +485,10 @@ app.post('/api/reset', verifyAdmin, (_req: Request, res: Response) => {
   };
   saveDatabase(db);
   res.json({ success: true, message: 'Database reset to original curatorial master state.' });
-});
+};
+
+app.post('/api/reset', verifyAdmin, handleReset);
+app.post('/api/admin/reset', verifyAdmin, handleReset);
 
 // --- FRONTEND INTEGRATION ---
 

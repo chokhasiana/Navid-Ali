@@ -3,8 +3,8 @@ import { ShoppingBag, Lock, Unlock, Palette, Plus } from 'lucide-react';
 import { LionFaceLogo } from '../common/LionFaceLogo';
 
 interface TopBarProps {
-  activeTab: 'home' | 'gallery' | 'shop' | 'about' | 'contact' | 'admin';
-  onNavigate: (tab: 'home' | 'gallery' | 'shop' | 'about' | 'contact' | 'admin') => void;
+  activeTab: 'home' | 'gallery' | 'blog' | 'shop' | 'about' | 'contact' | 'admin';
+  onNavigate: (tab: 'home' | 'gallery' | 'blog' | 'shop' | 'about' | 'contact' | 'admin') => void;
   cartCount: number;
   onOpenCart: () => void;
   isCuratorLoggedIn?: boolean;
@@ -39,8 +39,8 @@ export const TopBar: React.FC<TopBarProps> = ({
           </span>
         </button>
 
-        {/* Zone 2: 4–5 concise single-line text navigation links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium text-stone-600">
+        {/* Zone 2: 5 concise single-line text navigation links */}
+        <nav className="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.2em] font-medium text-stone-600">
           <button
             onClick={() => onNavigate('home')}
             className={`transition-colors hover:text-black pb-1 whitespace-nowrap shrink-0 cursor-pointer ${
@@ -58,12 +58,20 @@ export const TopBar: React.FC<TopBarProps> = ({
             Gallery
           </button>
           <button
+            onClick={() => onNavigate('blog')}
+            className={`transition-colors hover:text-black pb-1 whitespace-nowrap shrink-0 cursor-pointer ${
+              activeTab === 'blog' ? 'text-black border-b border-black font-semibold' : ''
+            }`}
+          >
+            Blog &amp; Notizen
+          </button>
+          <button
             onClick={() => onNavigate('shop')}
             className={`transition-colors hover:text-black pb-1 whitespace-nowrap shrink-0 cursor-pointer ${
               activeTab === 'shop' ? 'text-black border-b border-black font-semibold' : ''
             }`}
           >
-            Editions & Shop
+            Editions &amp; Shop
           </button>
           <button
             onClick={() => onNavigate('about')}
@@ -71,7 +79,7 @@ export const TopBar: React.FC<TopBarProps> = ({
               activeTab === 'about' ? 'text-black border-b border-black font-semibold' : ''
             }`}
           >
-            Monographs & Bio
+            Bio &amp; Atelier
           </button>
           <button
             onClick={() => onNavigate('contact')}
@@ -79,7 +87,7 @@ export const TopBar: React.FC<TopBarProps> = ({
               activeTab === 'contact' ? 'text-black border-b border-black font-semibold' : ''
             }`}
           >
-            Studio Contact
+            Kontakt
           </button>
         </nav>
 
@@ -152,37 +160,43 @@ export const TopBar: React.FC<TopBarProps> = ({
         </div>
       </div>
 
-      {/* Mobile navigation row */}
-      <div className="md:hidden flex items-center justify-around px-4 py-2 border-t border-[#e7e5e0] text-[10px] uppercase tracking-wider text-stone-600 bg-[#f7f5f0]">
+      {/* Mobile navigation row (horizontal scrollable with touch padding) */}
+      <div className="md:hidden flex items-center justify-between px-3 py-2 border-t border-[#e7e5e0] text-[11px] uppercase tracking-wider text-stone-600 bg-[#f7f5f0] overflow-x-auto no-scrollbar gap-2">
         <button
           onClick={() => onNavigate('home')}
-          className={`py-1 ${activeTab === 'home' ? 'text-black font-semibold' : ''}`}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'home' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
         >
           Home
         </button>
         <button
           onClick={() => onNavigate('gallery')}
-          className={`py-1 ${activeTab === 'gallery' ? 'text-black font-semibold' : ''}`}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'gallery' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
         >
-          Gallery
+          Galerie
+        </button>
+        <button
+          onClick={() => onNavigate('blog')}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'blog' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
+        >
+          Blog
         </button>
         <button
           onClick={() => onNavigate('shop')}
-          className={`py-1 ${activeTab === 'shop' ? 'text-black font-semibold' : ''}`}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'shop' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
         >
-          Editions
+          Shop
         </button>
         <button
           onClick={() => onNavigate('about')}
-          className={`py-1 ${activeTab === 'about' ? 'text-black font-semibold' : ''}`}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'about' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
         >
           Bio
         </button>
         <button
           onClick={() => onNavigate('contact')}
-          className={`py-1 ${activeTab === 'contact' ? 'text-black font-semibold' : ''}`}
+          className={`py-1.5 px-2 whitespace-nowrap cursor-pointer ${activeTab === 'contact' ? 'text-black font-bold border-b-2 border-[#b8860b]' : ''}`}
         >
-          Contact
+          Kontakt
         </button>
       </div>
     </header>

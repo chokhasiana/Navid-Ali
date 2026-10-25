@@ -2,7 +2,7 @@ import React from 'react';
 import { LionFaceLogo } from '../common/LionFaceLogo';
 
 interface FooterProps {
-  onNavigate: (tab: 'home' | 'gallery' | 'shop' | 'about' | 'contact' | 'admin') => void;
+  onNavigate: (tab: 'home' | 'gallery' | 'blog' | 'shop' | 'about' | 'contact' | 'admin') => void;
   onOpenLegal: (type: 'impressum' | 'datenschutz') => void;
 }
 
@@ -21,10 +21,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegal }) => {
             </span>
           </div>
           <p className="text-stone-600 font-light text-xs leading-relaxed max-w-sm pt-1">
-            Contemporary Fine Art Photography &amp; Algorithmic Spatial Media. Archival carbon pigment editions and generative light manifolds exploring architectural voids and transient atmospheres.
+            Schüler-Portfolio &amp; Kreativ-Blog. Bildende Kunst, großformatige Fotografie, generative Lichtexperimente und Einblicke in den gestalterischen Schaffensprozess.
           </p>
           <div className="text-[11px] font-mono text-stone-500 pt-1">
-            Berlin Studio · Zürich · Lahore Field Office
+            Berlin Atelier · Zürich Field Study
           </div>
         </div>
 
@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegal }) => {
                 onClick={() => onNavigate('home')}
                 className="hover:text-black transition-colors cursor-pointer"
               >
-                Overview
+                Übersicht
               </button>
             </li>
             <li>
@@ -47,7 +47,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegal }) => {
                 onClick={() => onNavigate('gallery')}
                 className="hover:text-black transition-colors cursor-pointer"
               >
-                Gallery Catalog
+                Kunstwerke &amp; Galerie
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onNavigate('blog')}
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                Blog &amp; Skizzenbuch
               </button>
             </li>
             <li>
@@ -55,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegal }) => {
                 onClick={() => onNavigate('shop')}
                 className="hover:text-black transition-colors cursor-pointer"
               >
-                Limited Editions &amp; Shop
+                Editionen &amp; Shop
               </button>
             </li>
             <li>
